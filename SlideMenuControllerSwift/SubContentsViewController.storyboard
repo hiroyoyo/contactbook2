@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sub Contents View Controller-->
+        <scene sceneID="TTa-d3-aNE">
+            <objects>
+                <viewController storyboardIdentifier="SubContentsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vxl-gz-eiI" customClass="SubContentsViewController" customModule="SlideMenuControllerSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Sf-aL-9sl"/>
+                        <viewControllerLayoutGuide type="bottom" id="H0R-6Q-ShB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VsC-r5-AAR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LjQ-dH-9ZP">
+                                <rect key="frame" x="20" y="90" width="560" height="490"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="490" id="lZv-RD-7XM"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he1-Fb-avQ">
+                                <rect key="frame" x="186" y="42" width="228" height="32.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="228" id="Saq-kx-tK5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8784313725490196" green="0.94901960784313721" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LjQ-dH-9ZP" firstAttribute="trailing" secondItem="VsC-r5-AAR" secondAttribute="trailingMargin" id="5Ub-ml-j5I"/>
+                            <constraint firstItem="he1-Fb-avQ" firstAttribute="leading" secondItem="VsC-r5-AAR" secondAttribute="leadingMargin" constant="166" id="OPP-zq-pu8"/>
+                            <constraint firstItem="he1-Fb-avQ" firstAttribute="top" secondItem="1Sf-aL-9sl" secondAttribute="bottom" constant="22" id="bz4-RD-f2v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="he1-Fb-avQ" secondAttribute="trailing" constant="166" id="fXs-TA-INS"/>
+                            <constraint firstItem="LjQ-dH-9ZP" firstAttribute="leading" secondItem="VsC-r5-AAR" secondAttribute="leadingMargin" id="i3G-d4-0Sj"/>
+                            <constraint firstItem="LjQ-dH-9ZP" firstAttribute="top" secondItem="he1-Fb-avQ" secondAttribute="bottom" constant="15.5" id="orV-IG-sbL"/>
+                            <constraint firstAttribute="bottom" secondItem="LjQ-dH-9ZP" secondAttribute="bottom" constant="20" symbolic="YES" id="vNl-Wc-OAl"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RcS-82-FP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="268.80000000000001" y="335.5322338830585"/>
+        </scene>
+    </scenes>
+</document>
