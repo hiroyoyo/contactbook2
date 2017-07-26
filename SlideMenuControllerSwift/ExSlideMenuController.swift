@@ -12,10 +12,12 @@ class ExSlideMenuController : SlideMenuController {
 
     override func isTagetViewController() -> Bool {
         if let vc = UIApplication.topViewController() {
-            if vc is MainViewController ||
-            vc is SwiftViewController ||
-            vc is JavaViewController ||
-            vc is GoViewController {
+            if vc is HomeViewController ||
+            vc is NoticeViewController ||
+            vc is ContactbookViewController ||
+            vc is TalkViewController ||
+            vc is StampViewController ||
+            vc is ConfigurationViewController {
                 return true
             }
         }

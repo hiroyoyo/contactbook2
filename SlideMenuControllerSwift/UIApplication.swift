@@ -23,7 +23,7 @@ extension UIApplication {
         }
         
         if let slide = viewController as? SlideMenuController {
-            return topViewController(slide.mainViewController)
+            return topViewController(slide.homeViewController)
         }
         return viewController
     }

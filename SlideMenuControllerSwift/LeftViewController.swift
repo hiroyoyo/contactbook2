@@ -24,12 +24,12 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     var menus = ["ホーム", "園からのお知らせ", "連絡帳", "個人トーク", "スタンプ帳", "設定"]
-    var mainViewController: UIViewController!
-    var swiftViewController: UIViewController!
-    var javaViewController: UIViewController!
-    var goViewController: UIViewController!
-//    var nonMenuViewController: UIViewController!
-//    var imageHeaderView: ImageHeaderView!
+    var homeViewController: UIViewController!
+    var noticeViewController: UIViewController!
+    var contactbookViewController: UIViewController!
+    var talkViewController: UIViewController!
+    var stampViewController: UIViewController!
+    var configurationViewController: UIViewController!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -41,14 +41,24 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let swiftViewController = storyboard.instantiateViewController(withIdentifier: "SwiftViewController") as! SwiftViewController
-        self.swiftViewController = UINavigationController(rootViewController: swiftViewController)
         
-        let javaViewController = storyboard.instantiateViewController(withIdentifier: "JavaViewController") as! JavaViewController
-        self.javaViewController = UINavigationController(rootViewController: javaViewController)
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        self.noticeViewController = UINavigationController(rootViewController: homeViewController)
+
+        let noticeViewController = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
+        self.noticeViewController = UINavigationController(rootViewController: noticeViewController)
         
-        let goViewController = storyboard.instantiateViewController(withIdentifier: "GoViewController") as! GoViewController
-        self.goViewController = UINavigationController(rootViewController: goViewController)
+        let contactbookViewController = storyboard.instantiateViewController(withIdentifier: "ContactbookViewController") as! ContactbookViewController
+        self.contactbookViewController = UINavigationController(rootViewController: contactbookViewController)
+        
+        let talkViewController = storyboard.instantiateViewController(withIdentifier: "TalkViewController") as! TalkViewController
+        self.talkViewController = UINavigationController(rootViewController: talkViewController)
+        
+        let stampViewController = storyboard.instantiateViewController(withIdentifier: "StampViewController") as! StampViewController
+        self.stampViewController = UINavigationController(rootViewController: stampViewController)
+        
+        let configurationViewController = storyboard.instantiateViewController(withIdentifier: "ConfigurationViewController") as! ConfigurationViewController
+        self.configurationViewController = UINavigationController(rootViewController: configurationViewController)
         
 //        let nonMenuController = storyboard.instantiateViewController(withIdentifier: "NonMenuController") as! NonMenuController
 //        nonMenuController.delegate = self
@@ -73,17 +83,17 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     func changeViewController(_ menu: LeftMenu) {
         switch menu {
         case .home:
-            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+            self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
         case .notice:
-            self.slideMenuController()?.changeMainViewController(self.swiftViewController, close: true)
+            self.slideMenuController()?.changeMainViewController(self.noticeViewController, close: true)
         case .contactbook:
-            self.slideMenuController()?.changeMainViewController(self.javaViewController, close: true)
+            self.slideMenuController()?.changeMainViewController(self.contactbookViewController, close: true)
         case .talk:
-            self.slideMenuController()?.changeMainViewController(self.goViewController, close: true)
+            self.slideMenuController()?.changeMainViewController(self.talkViewController, close: true)
         case .stamp:
-            self.slideMenuController()?.changeMainViewController(self.goViewController, close: true)
+            self.slideMenuController()?.changeMainViewController(self.stampViewController, close: true)
         case .configuration:
-            self.slideMenuController()?.changeMainViewController(self.goViewController, close: true)
+            self.slideMenuController()?.changeMainViewController(self.configurationViewController, close: true)
 
         }
     }

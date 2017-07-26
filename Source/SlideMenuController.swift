@@ -72,7 +72,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     open var mainContainerView = UIView()
     open var leftContainerView = UIView()
     open var rightContainerView =  UIView()
-    open var mainViewController: UIViewController?
+    open var homeViewController: UIViewController?
     open var leftViewController: UIViewController?
     open var leftPanGesture: UIPanGestureRecognizer?
     open var leftTapGesture: UITapGestureRecognizer?
@@ -88,23 +88,23 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    public convenience init(mainViewController: UIViewController, leftMenuViewController: UIViewController) {
+    public convenience init(homeViewController: UIViewController, leftMenuViewController: UIViewController) {
         self.init()
-        self.mainViewController = mainViewController
+        self.homeViewController = homeViewController
         leftViewController = leftMenuViewController
         initView()
     }
     
-    public convenience init(mainViewController: UIViewController, rightMenuViewController: UIViewController) {
+    public convenience init(homeViewController: UIViewController, rightMenuViewController: UIViewController) {
         self.init()
-        self.mainViewController = mainViewController
+        self.homeViewController = homeViewController
         rightViewController = rightMenuViewController
         initView()
     }
     
-    public convenience init(mainViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
+    public convenience init(homeViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
         self.init()
-        self.mainViewController = mainViewController
+        self.homeViewController = homeViewController
         leftViewController = leftMenuViewController
         rightViewController = rightMenuViewController
         initView()
@@ -192,30 +192,30 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
 
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //automatically called 
-        //self.mainViewController?.viewWillAppear(animated)
+//        automatically called 
+//        self.homeViewController?.viewWillAppear(animated)
     }
     
     open override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-        if let mainController = self.mainViewController{
+        if let mainController = self.homeViewController{
             return mainController.supportedInterfaceOrientations
         }
         return UIInterfaceOrientationMask.all
     }
     
     open override var shouldAutorotate : Bool {
-        return mainViewController?.shouldAutorotate ?? false
+        return homeViewController?.shouldAutorotate ?? false
     }
         
     open override func viewWillLayoutSubviews() {
         // topLayoutGuideの値が確定するこのタイミングで各種ViewControllerをセットする
-        setUpViewController(mainContainerView, targetViewController: mainViewController)
+        setUpViewController(mainContainerView, targetViewController: homeViewController)
         setUpViewController(leftContainerView, targetViewController: leftViewController)
         setUpViewController(rightContainerView, targetViewController: rightViewController)
     }
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return self.mainViewController?.preferredStatusBarStyle ?? .default
+        return self.homeViewController?.preferredStatusBarStyle ?? .default
     }
     
     open override func openLeft() {
@@ -679,11 +679,11 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         return rightContainerView.frame.origin.x >= view.bounds.width
     }
     
-    open func changeMainViewController(_ mainViewController: UIViewController,  close: Bool) {
+    open func changeMainViewController(_ homeViewController: UIViewController,  close: Bool) {
         
-        removeViewController(self.mainViewController)
-        self.mainViewController = mainViewController
-        setUpViewController(mainContainerView, targetViewController: mainViewController)
+        removeViewController(self.homeViewController)
+        self.homeViewController = homeViewController
+        setUpViewController(mainContainerView, targetViewController: homeViewController)
         if close {
             closeLeft()
             closeRight()
